@@ -19,7 +19,9 @@ const Articles = ()=>{
         return(<h1>loading...</h1>)
     }
 
-    return(<><h1>Articles</h1><ArticleCard articles = {articles}/></>)
+    return(<><h1>Articles</h1><ul>{articles.map((article)=>{
+        return <li key = {article.article_id}><ArticleCard article = {article}/></li>
+    })}</ul></>)
 }
 
 
