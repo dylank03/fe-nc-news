@@ -7,6 +7,8 @@ const getArticles = ()=>{
     .get("/articles")
     .then((response) => {
         return response.data;
+    }).catch((err)=>{
+        console.log(err)
     });
 }
 
