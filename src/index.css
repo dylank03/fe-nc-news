@@ -22,3 +22,14 @@ h1{
 .article_list_item{
   font-weight: 900;
 }
+
+.comments_list{
+  list-style-type: none;
+}
+
+.comment{
+  border-style: solid;
+  border-color: black;
+  margin: 20px;
+  padding: 20px;
+}
