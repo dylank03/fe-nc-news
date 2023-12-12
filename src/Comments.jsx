@@ -12,6 +12,10 @@ const Comments = ()=>{
             setComments(commentData.comments);
         })
         }, []);
+
+        if(comments.length === 0){
+            return(<><h1>Comments</h1><h2>No Comments</h2></>)
+        }
  
         return(<><h1>Comments</h1><ul className="comments_list">{comments.map((comment)=>{
             return(<li className = "comment" key = {comment.comment_id}><CommentCard comment = {comment}/></li>)
