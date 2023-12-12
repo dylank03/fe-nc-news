@@ -7,9 +7,19 @@ const getArticles = ()=>{
     .get("/articles")
     .then((response) => {
         return response.data;
-    }).catch((err)=>{
-        console.log(err)
     });
 }
 
+const getArticleById = (articleId)=>{
+    return newsApi
+    .get(`/articles/${articleId}`)
+    .then((response)=>{
+        return response.data
+    }).catch((err)=>{
+        console.log(err)
+    })
+}
+
 export default getArticles
+
+export {getArticleById}
