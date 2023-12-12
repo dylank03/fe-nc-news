@@ -2,6 +2,7 @@ import { getArticleById } from "./api"
 import { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import Comments from './Comments'
+import { patchVotes } from "./api"
 
 const ArticlePage = ()=>{
 
@@ -9,6 +10,14 @@ const ArticlePage = ()=>{
     const[isLoading, setIsLoading] = useState(true)
     const {article_id} = useParams()
     const[commentNumber, setCommentNumber] = useState(0)
+
+    const handleClick = (articleId)=>{
+        patchVotes(articleId)
+
+        setArticle((currArticle)=>{
+            return {...currArticle, votes: article.votes +1}
+        })
+    }
 
     useEffect(()=>{
         getArticleById(article_id).then((articleData)=>{
