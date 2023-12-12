@@ -32,15 +32,14 @@ const getComments = (articleId)=>{
     })
 }
 
-const patchVotes = (articleId) =>{
-    console.log(articleId)
+const patchVotes = (articleId, vote) =>{
     return newsApi
-    .patch(`/articles/${articleId}`, {inc_votes: 1})
+    .patch(`/articles/${articleId}`, {inc_votes: vote})
     .then(({data})=>{
         return data.votes
-    }).catch((err)=>{
+    })/*.catch((err)=>{
         console.log(err)
-    })
+    })*/
 }
 
 export default getArticles
