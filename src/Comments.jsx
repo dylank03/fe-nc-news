@@ -2,6 +2,7 @@ import { getComments } from "./api"
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import CommentCard from "./CommentCard"
+import AddComment from "./AddComment"
 
 const Comments = ()=>{
     const [comments, setComments] = useState([])
@@ -19,7 +20,7 @@ const Comments = ()=>{
  
         return(<><h1>Comments</h1><ul className="comments_list">{comments.map((comment)=>{
             return(<li className = "comment" key = {comment.comment_id}><CommentCard comment = {comment}/></li>)
-        })}</ul></>)
+        })}</ul><AddComment/></>)
 }
 
 export default Comments

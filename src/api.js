@@ -32,6 +32,16 @@ const getComments = (articleId)=>{
     })
 }
 
+const postComment = (articleId, newComment)=>{
+    return newsApi
+    .post(`/articles/${articleId}/comments`, newComment)
+    .then(({data})=>{
+        return data
+    }).catch((err)=>{
+        console.log(err)
+    })
+}
+
 export default getArticles
 
-export {getArticleById, getComments}
+export {getArticleById, getComments, postComment}
