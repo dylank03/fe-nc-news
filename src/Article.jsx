@@ -9,11 +9,8 @@ const ArticlePage = ()=>{
     const[article, setArticle] = useState({})
     const[isLoading, setIsLoading] = useState(true)
     const {article_id} = useParams()
-<<<<<<< HEAD
     const[commentNumber, setCommentNumber] = useState(0)
-=======
     const[err, setError] = useState(null)
->>>>>>> 9a8be0e (added error handling and downvote)
 
     const handleClick = (articleId, vote)=>{
         patchVotes(articleId, vote).catch((err)=>{
@@ -40,7 +37,7 @@ const ArticlePage = ()=>{
     if(isLoading){
         return<h1>Loading...</h1>
     }
-    return(<div className="single_article"><h1>{article.title}</h1><img src = {article.article_img_url}/><h3>Author: {article.author}</h3><h3>Topic: {article.topic}</h3><h3>Comments: {article.comment_count}</h3><button onClick={(event)=>{handleClick(article_id, -1)}}>downvote</button><button onClick={(event)=>{handleClick(article_id, 1)}}>upvote</button>{err ? <p>{err}</p> : null} <p>votes: {article.votes}</p><p>{article.body}</p><Comments setCommentNumber={setCommentNumber}/></div></div>)
+    return(<div className="single_article"><h1>{article.title}</h1><img src = {article.article_img_url}/><h3>Author: {article.author}</h3><h3>Topic: {article.topic}</h3><h3>Comments: {article.comment_count}</h3><button onClick={(event)=>{handleClick(article_id, -1)}}>downvote</button><button onClick={(event)=>{handleClick(article_id, 1)}}>upvote</button>{err ? <p>{err}</p> : null} <p>votes: {article.votes}</p><p>{article.body}</p><Comments setCommentNumber={setCommentNumber}/></div>)
 }
 
 export default ArticlePage

@@ -32,7 +32,6 @@ const getComments = (articleId)=>{
     })
 }
 
-<<<<<<< HEAD
 const postComment = (articleId, newComment, user)=>{
     return newsApi
     .post(`/articles/${articleId}/comments`, {author: user, body: newComment})
@@ -48,25 +47,16 @@ const getUsers = ()=>{
         return data
     })}
 
-    const patchVotes = (articleId) =>{
-    console.log(articleId)
-=======
+
 const patchVotes = (articleId, vote) =>{
->>>>>>> 9a8be0e (added error handling and downvote)
     return newsApi
     .patch(`/articles/${articleId}`, {inc_votes: vote})
     .then(({data})=>{
         return data.votes
-<<<<<<< HEAD
-    })
-=======
-    })/*.catch((err)=>{
-        console.log(err)
-    })*/
->>>>>>> 9a8be0e (added error handling and downvote)
-}
+
+    })}
+
 
 export default getArticles
 
 export {getArticleById, getComments, patchVotes, postComment, getUsers}
-
