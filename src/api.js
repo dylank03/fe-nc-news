@@ -37,9 +37,7 @@ const patchVotes = (articleId, vote) =>{
     .patch(`/articles/${articleId}`, {inc_votes: vote})
     .then(({data})=>{
         return data.votes
-    })/*.catch((err)=>{
-        console.log(err)
-    })*/
+    })
 }
 
 export default getArticles
