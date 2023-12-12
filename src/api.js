@@ -15,6 +15,8 @@ const getArticleById = (articleId)=>{
     .get(`/articles/${articleId}`)
     .then((response)=>{
         return response.data
+    }).catch((err)=>{
+        console.log(err)
     })
 }
 
