@@ -19,7 +19,7 @@ const Articles = ()=>{
         return(<h1>loading...</h1>)
     }
 
-    return(<><h1>Articles</h1><ArticleCard articles = {articles}/></>)
+    return(<><h1 className="article_list">Articles</h1><ArticleCard articles = {articles}/></>)
 }
 
 

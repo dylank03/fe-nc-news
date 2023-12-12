@@ -23,6 +23,10 @@ h1{
   font-weight: 900;
 }
 
+.single_article{
+  text-align: center;
+}
+
 .comments_list{
   list-style-type: none;
 }
