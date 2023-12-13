@@ -33,12 +33,12 @@ const getComments = (articleId)=>{
 }
 
 const postComment = (articleId, newComment)=>{
+    console.log(articleId, "articleId")
+    console.log(newComment, "newComment")
     return newsApi
-    .post(`/articles/${articleId}/comments`, newComment)
+    .post(`/articles/${articleId}/comments`, {author: 'cooljmessy', body: newComment})
     .then(({data})=>{
         return data
-    }).catch((err)=>{
-        console.log(err)
     })
 }
 

@@ -7,6 +7,7 @@ import AddComment from "./AddComment"
 const Comments = ()=>{
     const [comments, setComments] = useState([])
     const {article_id} = useParams()
+    const [updatedComments, setUpdatedComments] = useState([])
 
     useEffect(() => {
         getComments(article_id).then((commentData) => {
@@ -18,9 +19,11 @@ const Comments = ()=>{
             return(<><h1>Comments</h1><h2>No Comments</h2></>)
         }
  
-        return(<><h1>Comments</h1><ul className="comments_list">{comments.map((comment)=>{
+        return(<><AddComment setUpdatedComments = {setUpdatedComments}/><h1>Comments</h1><ul className="comments_list">{updatedComments.map((comment, index)=>{
+            return(<li className = "comment" key = {index}><CommentCard comment = {comment}/></li>)
+        })}</ul><ul className="comments_list">{comments.map((comment)=>{
             return(<li className = "comment" key = {comment.comment_id}><CommentCard comment = {comment}/></li>)
-        })}</ul><AddComment/></>)
+        })}</ul></>)
 }
 
 export default Comments
