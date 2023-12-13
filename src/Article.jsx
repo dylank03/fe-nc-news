@@ -13,16 +13,18 @@ const ArticlePage = ()=>{
     const[err, setError] = useState(null)
 
     const handleClick = (articleId, vote)=>{
+        setError(null)
+        const newVote = article.votes + vote
+        setArticle((currArticle)=>{
+            return {...currArticle, votes: newVote}
+        })
         patchVotes(articleId, vote).catch((err)=>{
             setArticle((currArticle)=>{
-                return {...currArticle, votes: currArticle.votes -vote}
+                return {...currArticle, votes: newVote -vote}
             })
             setError('something went wrong, please try again later')
         })
-        setError(null)
-        setArticle((currArticle)=>{
-            return {...currArticle, votes: article.votes + vote}
-        })
+
     }
 
     useEffect(()=>{
