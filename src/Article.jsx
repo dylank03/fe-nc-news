@@ -14,14 +14,15 @@ const ArticlePage = ()=>{
         getArticleById(article_id).then((articleData)=>{
             setArticle(articleData.article)
             setIsLoading(false)
-            setCommentNumber(article.comment_count)
+            setCommentNumber(+articleData.article.comment_count)
         })
     },[])
+
 
     if(isLoading){
         return<h1>Loading...</h1>
     }
-    return(<div className="single_article"><h1>{article.title}</h1><img src = {article.article_img_url}/><h3>Author: {article.author}</h3><h3>Topic: {article.topic}</h3><h3>Comments: {commentNumber}</h3><h3>votes: {article.votes}</h3><p>{article.body}</p> <Comments/></div>)
+    return(<div className="single_article"><h1>{article.title}</h1><img src = {article.article_img_url}/><h3>Author: {article.author}</h3><h3>Topic: {article.topic}</h3><h3>Comments: {commentNumber}</h3><h3>votes: {article.votes}</h3><p>{article.body}</p> <Comments setCommentNumber={setCommentNumber}/></div>)
 }
 
 export default ArticlePage

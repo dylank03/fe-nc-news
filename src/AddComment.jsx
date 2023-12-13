@@ -3,7 +3,7 @@ import { useState, useEffect, useContext} from "react"
 import { useParams } from "react-router-dom"
 import { UserContext } from "./contexts/UserContext"
 
-const AddComment = ({setUpdatedComments}) =>{
+const AddComment = ({setUpdatedComments, setCommentNumber}) =>{
 
     const[newComment, setNewComment] = useState('')
     const[inputBody, setInputBody] = useState('')
@@ -20,11 +20,14 @@ const AddComment = ({setUpdatedComments}) =>{
         if(newComment.length >0){
         postComment(article_id, newComment, user)
         setUpdatedComments((currComments)=>{
-          return [...currComments, {author: user, body: newComment}]})
+          return [{author: user, body: newComment}, ...currComments]
+        })
+          setCommentNumber((currNumber) => currNumber + 1)
         }
 
         setNewComment('')
     }, [newComment])
+
 
     return (
         <>
