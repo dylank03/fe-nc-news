@@ -9,22 +9,38 @@ const AddComment = ({setUpdatedComments, setCommentNumber}) =>{
     const[inputBody, setInputBody] = useState('')
     const {article_id} = useParams()
     const {user} = useContext(UserContext)
+    const [message, setMessage] = useState(null)
 
     const handleSubmit = (event)=>{
         event.preventDefault()
         setNewComment(inputBody)
         setInputBody('')
+        if(newComment.length === 0){
+            setMessage('Comment Cannot be empty')
+        }
     }
+
 
     useEffect(()=>{
         if(newComment.length >0){
-        postComment(article_id, newComment, user)
-        setUpdatedComments((currComments)=>{
+          setMessage('Posting...')
+          setUpdatedComments((currComments)=>{
           return [{author: user, body: newComment}, ...currComments]
         })
           setCommentNumber((currNumber) => currNumber + 1)
+          postComment(article_id, newComment, user).then(()=>{setMessage('Comment Posted!')}).catch((err)=>{
+              setUpdatedComments((currComments)=>{
+                  return currComments.slice(1)
+              })
+              if(!user){
+                  setMessage('Please log in to add a comment')
+              }
+              else{
+                  setMessage('Something went wrong, please try again later')
+              }
+              setCommentNumber((currNumber) => currNumber -1)
+          })
         }
-
         setNewComment('')
     }, [newComment])
 
@@ -43,7 +59,7 @@ const AddComment = ({setUpdatedComments, setCommentNumber}) =>{
                 }}
                 value={inputBody}
               ></input>
-            </label><button>add comment</button></form></>)
+            </label><button>add comment</button></form> {message ? <p>{message}</p> : null}</>)
 
 }
 
