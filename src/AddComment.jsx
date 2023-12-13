@@ -1,12 +1,14 @@
 import { postComment } from "./api"
-import { useState, useEffect} from "react"
+import { useState, useEffect, useContext} from "react"
 import { useParams } from "react-router-dom"
+import { UserContext } from "./contexts/UserContext"
 
 const AddComment = ({setUpdatedComments}) =>{
 
     const[newComment, setNewComment] = useState('')
     const[inputBody, setInputBody] = useState('')
     const {article_id} = useParams()
+    const {user} = useContext(UserContext)
 
     const handleSubmit = (event)=>{
         event.preventDefault()
@@ -16,9 +18,9 @@ const AddComment = ({setUpdatedComments}) =>{
 
     useEffect(()=>{
         if(newComment.length >0){
-        postComment(article_id, newComment)
+        postComment(article_id, newComment, user)
         setUpdatedComments((currComments)=>{
-          return [...currComments, {author: 'cooljmessy', body: newComment}]})
+          return [...currComments, {author: user, body: newComment}]})
         }
 
         setNewComment('')

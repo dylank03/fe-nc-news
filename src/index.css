@@ -37,3 +37,27 @@ h1{
   margin: 20px;
   padding: 20px;
 }
+
+.user_list{
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+}
+
+.user_list_img{
+    height: 200px;
+    width: 200px
+}
+
+.user_card{
+  border-style: solid;
+  border-color: black;
+  margin: 20px;
+  padding: 20px;
+  width: 300px;
+}
+
+#user_button{
+  height:40px;
+  width: 200px;
+}

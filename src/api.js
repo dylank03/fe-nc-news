@@ -32,11 +32,17 @@ const getComments = (articleId)=>{
     })
 }
 
-const postComment = (articleId, newComment)=>{
-    console.log(articleId, "articleId")
-    console.log(newComment, "newComment")
+const postComment = (articleId, newComment, user)=>{
     return newsApi
-    .post(`/articles/${articleId}/comments`, {author: 'cooljmessy', body: newComment})
+    .post(`/articles/${articleId}/comments`, {author: user, body: newComment})
+    .then(({data})=>{
+        return data
+    })
+}
+
+const getUsers = ()=>{
+    return newsApi
+    .get('/users')
     .then(({data})=>{
         return data
     })
@@ -44,4 +50,4 @@ const postComment = (articleId, newComment)=>{
 
 export default getArticles
 
-export {getArticleById, getComments, postComment}
+export {getArticleById, getComments, postComment, getUsers}
