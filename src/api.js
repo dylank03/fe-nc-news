@@ -47,7 +47,6 @@ const getUsers = ()=>{
         return data
     })}
 
-
 const patchVotes = (articleId, vote) =>{
     return newsApi
     .patch(`/articles/${articleId}`, {inc_votes: vote})
