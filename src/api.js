@@ -45,9 +45,16 @@ const getUsers = ()=>{
     .get('/users')
     .then(({data})=>{
         return data
+    })}
+
+const patchVotes = (articleId, vote) =>{
+    return newsApi
+    .patch(`/articles/${articleId}`, {inc_votes: vote})
+    .then(({data})=>{
+        return data.votes
     })
 }
 
 export default getArticles
 
-export {getArticleById, getComments, postComment, getUsers}
+export {getArticleById, getComments, patchVotes, postComment, getUsers}
