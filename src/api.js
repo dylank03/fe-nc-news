@@ -32,6 +32,21 @@ const getComments = (articleId)=>{
     })
 }
 
+const postComment = (articleId, newComment, user)=>{
+    return newsApi
+    .post(`/articles/${articleId}/comments`, {author: user, body: newComment})
+    .then(({data})=>{
+        return data
+    })
+}
+
+const getUsers = ()=>{
+    return newsApi
+    .get('/users')
+    .then(({data})=>{
+        return data
+    })}
+
 const patchVotes = (articleId, vote) =>{
     return newsApi
     .patch(`/articles/${articleId}`, {inc_votes: vote})
@@ -42,4 +57,4 @@ const patchVotes = (articleId, vote) =>{
 
 export default getArticles
 
-export {getArticleById, getComments, patchVotes}
+export {getArticleById, getComments, patchVotes, postComment, getUsers}
