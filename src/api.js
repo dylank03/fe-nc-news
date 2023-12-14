@@ -56,7 +56,12 @@ const patchVotes = (articleId, vote) =>{
 
     })}
 
+const deleteComment = (commentId)=>{
+    return newsApi
+    .delete(`/comments/${commentId}`)
+}
+
 
 export default getArticles
 
-export {getArticleById, getComments, patchVotes, postComment, getUsers}
+export {getArticleById, getComments, patchVotes, postComment, getUsers, deleteComment}
