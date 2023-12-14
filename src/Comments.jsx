@@ -9,6 +9,9 @@ const Comments = ({setCommentNumber})=>{
     const {article_id} = useParams()
     const [updatedComments, setUpdatedComments] = useState([])
 
+
+
+
     useEffect(() => {
         getComments(article_id).then((commentData) => {
             setComments(commentData.comments);
@@ -20,11 +23,13 @@ const Comments = ({setCommentNumber})=>{
             return(<><h1>Comments</h1><h2>No Comments</h2></>)
         }
  
-        return(<><AddComment setCommentNumber={setCommentNumber} setUpdatedComments = {setUpdatedComments}/><h1>Comments</h1><ul className="comments_list">{updatedComments.map((comment, index)=>{
+        return(<>
+        <AddComment setCommentNumber={setCommentNumber} setUpdatedComments = {setUpdatedComments}/><h1>Comments</h1><ul className="comments_list">{updatedComments.map((comment, index)=>{
             return(<li className = "comment" key = {index}><CommentCard comment = {comment}/></li>)
         })}</ul><ul className="comments_list">{comments.map((comment)=>{
             return(<li className = "comment" key = {comment.comment_id}><CommentCard comment = {comment}/></li>)
         })}</ul></>)
 }
+
 
 export default Comments

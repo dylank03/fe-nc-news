@@ -52,9 +52,15 @@ const patchVotes = (articleId, vote) =>{
     .patch(`/articles/${articleId}`, {inc_votes: vote})
     .then(({data})=>{
         return data.votes
-    })
+
+    })}
+
+const deleteComment = (commentId)=>{
+    return newsApi
+    .delete(`/comments/${commentId}`)
 }
+
 
 export default getArticles
 
-export {getArticleById, getComments, patchVotes, postComment, getUsers}
+export {getArticleById, getComments, patchVotes, postComment, getUsers, deleteComment}
