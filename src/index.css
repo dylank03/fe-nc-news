@@ -9,12 +9,22 @@
   background-color: black;
 }
 
+.navbar{
+  text-align: center;
+}
+
+.navitem{
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
 .article_title{
   font-size: 40px;
   font-weight: 900;
 }
 
 h1{
+  font-size: 4rem;
   text-align: center
 }
 
@@ -49,7 +59,10 @@ h1{
 .comment{
   border-style: solid;
   border-color: black;
-  margin: 20px;
+  margin-top: 50px;
+  margin-bottom:50px;
+  margin-left:20vw;
+  margin-right:20vw;
   padding: 20px;
 }
 
@@ -76,3 +89,8 @@ h1{
   height:40px;
   width: 200px;
 } 
+
+.error_message{
+  font-size: 1.2rem;
+}
+
