@@ -8,12 +8,10 @@ const Articles = ()=>{
     const[isLoading, setIsLoading] = useState(true)
 
 
-    useEffect(() => {
     getArticles().then((articleData) => {
         setArticles(articleData.articles);
         setIsLoading(false)
     })
-    }, []);
 
     if(isLoading){
         return(<h1>loading...</h1>)
