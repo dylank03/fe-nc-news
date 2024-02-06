@@ -2,15 +2,32 @@ import axios from 'axios'
 
 const newsApi = axios.create({baseURL: 'https://ncnewshostserver.onrender.com/api'})
 
-const getArticles = ()=>{
+const getArticles = (topic)=>{
+    let value = topic.get('topic')
     return newsApi
-    .get("/articles")
+    .get("/articles", {
+        params: {
+          topic: value
+        },
+      })
     .then((response) => {
+        console.log(response.data)
         return response.data;
     }).catch((err)=>{
         console.log(err)
     });
 }
+
+const getTopics = ()=>{
+    return newsApi
+    .get("/topics")
+    .then((response)=>{
+        return response.data
+    }).catch((err)=>{
+        console.log(err)
+    })
+}
+
 
 const getArticleById = (articleId)=>{
     return newsApi
@@ -63,4 +80,4 @@ const deleteComment = (commentId)=>{
 
 export default getArticles
 
-export {getArticleById, getComments, patchVotes, postComment, getUsers, deleteComment}
+export {getArticleById, getComments, patchVotes, postComment, getUsers, deleteComment, getTopics}
