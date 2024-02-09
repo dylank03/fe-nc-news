@@ -1,27 +1,62 @@
 import { useState, useEffect } from "react"
 import getArticles from "./api"
+import {getTopics} from "./api"
 import ArticleCard from "./ArticleCard"
+import { useSearchParams } from "react-router-dom"
+
+
 
 const Articles = ()=>{
 
     const[articles, setArticles] = useState([])
     const[isLoading, setIsLoading] = useState(true)
+    const [topics, setTopics] = useState([])
+    const[topic, setTopic] = useSearchParams('')
+    const[articleCount, setArticleCount] = useState(0)
 
+    const handleSubmit = (event)=>{
+        event.preventDefault()
+        setTopic('')
+    }
 
     useEffect(() => {
-    getArticles().then((articleData) => {
-        setArticles(articleData.articles);
-        setIsLoading(false)
-    })
-    }, []);
+        getArticles(topic).then((articleData) => {
+            setArticles(articleData.articles);
+            setArticleCount(articleData.article_count)
+            setIsLoading(false)
+        })
+        getTopics().then((topicsData)=>{
+            setTopics(topicsData.allTopics)
+        })
+    }, [topic]);
 
     if(isLoading){
         return(<h1>loading...</h1>)
     }
 
-    return(<><h1>Articles</h1><ul className = "articles_list">{articles.map((article)=>{
-        return <li key = {article.article_id}><ArticleCard article = {article}/></li>
+    return(<>          
+    <form onSubmit={handleSubmit}>
+        <label>
+          Category:
+          <select
+            name="category-names"
+            id="item_category"
+            onChange={(event) => {
+              setTopic({topic: event.target.value});
+            }}
+                  >
+            <option value="" disabled  >Categories</option>
+            {topics.map((topic)=>{
+                return(<option value={topic.slug}> {topic.slug}</option>)
+            })}
+
+          </select>
+        </label>
+        <button>Reset Filters</button>
+      </form><h2>There are {articleCount} articles</h2><h1 className="text-7xl decoration-double text-center mb-10">Top Articles</h1><ul>{articles.map((article)=>{
+        return <li className = "flex justify-center" key = {article.article_id}><ArticleCard article = {article}/></li>
     })}</ul></>)
+
 }
 
 
