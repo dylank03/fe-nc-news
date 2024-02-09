@@ -53,8 +53,8 @@ const Articles = ()=>{
           </select>
         </label>
         <button>Reset Filters</button>
-      </form><h2 className="text-green-500">There are {articleCount} articles</h2><h1>Articles</h1><ul className = "articles_list">{articles.map((article)=>{
-        return <li key = {article.article_id}><ArticleCard article = {article}/></li>
+      </form><h2>There are {articleCount} articles</h2><h1 className="text-7xl decoration-double text-center mb-10">Top Articles</h1><ul>{articles.map((article)=>{
+        return <li className = "flex justify-center" key = {article.article_id}><ArticleCard article = {article}/></li>
     })}</ul></>)
 
 }

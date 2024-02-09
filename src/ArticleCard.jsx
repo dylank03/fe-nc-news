@@ -8,12 +8,12 @@ const ArticleCard = ({article})=>{
         return (
             <nav>
                 <Link to = {"/articles/" + article.article_id}>
-            <Card className="flex-col items-center article_list_item">
-              <CardHeader className="pb-0 pt-2 px-4 flex-col">
-                <h4 className="font-bold text-large">{article.title}</h4>
+            <Card className="flex-shrink w-96 my-2">
+              <CardHeader className="flex-col ">
+                <h4 className="font-bold text-large text-wrap">{article.title}</h4>
                 <small className="text-default-500">{article.author}</small>
               </CardHeader>
-              <CardBody className="overflow-visible py-2 flex-col items-center">
+              <CardBody className="overflow-visible flex-col items-center">
                 <Image
                   alt="Card background"
                   className="object-cover rounded-x1"
