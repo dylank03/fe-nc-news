@@ -2,7 +2,6 @@ import { useState, useEffect, useContext } from "react"
 import { getUsers } from "./api"
 import UserCard from "./UserCard"
 import { UserContext } from "./contexts/UserContext"
-import {CircularProgress} from "@nextui-org/react";
 
 const Home = ()=>{
     const [userList, setUserList] = useState([])

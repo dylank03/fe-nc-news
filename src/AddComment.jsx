@@ -2,7 +2,6 @@ import { postComment } from "./api"
 import { useState, useEffect, useContext} from "react"
 import { useParams } from "react-router-dom"
 import { UserContext } from "./contexts/UserContext"
-import { Textarea } from "@nextui-org/react"
 
 const AddComment = ({setUpdatedComments, setCommentNumber}) =>{
 
@@ -51,16 +50,14 @@ const AddComment = ({setUpdatedComments, setCommentNumber}) =>{
           <form onSubmit = {handleSubmit}>
             <label>
               Post Comment:
-              <Textarea
+              <textarea
               errorMessage = {<h2 className="error_message">{message}</h2>}
-              variant = {"underlined"}
                 placeholder="Add Comment"
-                size="lg"
                 onChange={(event) => {
                   setInputBody(event.target.value);
                 }}
                 value={inputBody}
-              ></Textarea>
+              ></textarea>
             </label><button>add comment</button></form></>)
 
 }

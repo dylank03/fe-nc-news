@@ -1,6 +1,5 @@
 import { deleteComment } from "./api"
 import { useState, useEffect,  } from "react"
-import {Button} from "@nextui-org/react";
 
 const DeleteComment = ({commentId, setDeleteMessage}) =>{
 
@@ -20,7 +19,7 @@ const DeleteComment = ({commentId, setDeleteMessage}) =>{
 
 
 
-    return (<Button color="primary" isDisabled = {waiting} onPress={()=>{handleClick()}}> Delete </Button>)
+    return (<button isDisabled = {waiting} onPress={()=>{handleClick()}}> Delete </button>)
 }
 
 export default DeleteComment

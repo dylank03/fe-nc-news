@@ -1,3 +1,79 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: #92A8D1;
+}
+
+h1{
+  text-align: center
+}
+
+.articles_list{
+  list-style-type: none;
+  text-align: center;
+}
+
+.article_img{
+  height: 200px;
+  width: 200px;
+  border-radius: 10%;
+}
+
+.article_title{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.article_list_item{
+  background-color: lightblue;
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  height: 400px;
+  width: 400px;
+  display: inline-block;
+  font-weight: 900;
+}
+
+.single_article{
+  text-align: center;
+}
+
+.comments_list{
+  list-style-type: none;
+}
+
+.comment{
+  border-style: solid;
+  border-color: black;
+  margin: 20px;
+  padding: 20px;
+}
+
+.user_list{
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+}
+
+.user_list_img{
+    height: 200px;
+    width: 200px
+}
+
+.user_card{
+  border-style: solid;
+  border-color: black;
+  margin: 20px;
+  padding: 20px;
+  width: 300px;
+}
+
+#user_button{
+  height:40px;
+  width: 200px;
+}
