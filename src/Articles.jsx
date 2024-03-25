@@ -35,7 +35,7 @@ const Articles = ()=>{
     }
 
     return(<>          
-    <form onSubmit={handleSubmit}>
+    {/* <form onSubmit={handleSubmit}>
         <label>
           Category:
           <select
@@ -52,9 +52,9 @@ const Articles = ()=>{
 
           </select>
         </label>
-        <button>Reset Filters</button>
-      </form><h2>There are {articleCount} articles</h2><h1>Top Articles</h1><ul className="articles_list">{articles.map((article)=>{
-        return <li key = {article.article_id}><ArticleCard article = {article}/></li>
+        <button>Reset Filters</button> */}
+      {/*</form><h2>There are {articleCount} articles</h2>*/}<h1>Top Articles</h1><ul className="articles_list">{articles.map((article)=>{
+        return <li className="articles_list_item" key = {article.article_id}><ArticleCard article = {article}/></li>
     })}</ul></>)
 
 }

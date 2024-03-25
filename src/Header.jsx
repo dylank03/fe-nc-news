@@ -6,12 +6,15 @@ const Header = () =>{
 
     const{user} = useContext(UserContext)
 
-    return(<><h1>NC News</h1>
-    {user && <h2>User: {user}</h2>}   
-    <nav className = "navbar">
-        <Link className = "navitem" to = "/"> Home </Link>
-        <Link className = "navitem" to="/Articles"> Articles</Link>
-    </nav>
+    return(<>
+    {user && <h2>User: {user}</h2>}
+    <div className="header_container"> 
+        <img className = "page_logo" src="../src/assets/ShareSphereLogo.png" alt="My Image"></img>
+        <nav className="header_list">
+        <Link className = "header_link" to = "/"> Home </Link>
+        <Link className="header_link" to="/Articles"> Articles</Link>
+        </nav>
+    </div>
 </>)
 }
 
