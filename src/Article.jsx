@@ -35,11 +35,13 @@ const ArticlePage = ()=>{
         })
     },[])
 
+    const createdAt = new Date(article.created_at)
+
 
     if(isLoading){
         return<h1>Loading...</h1>
     }
-    return(<div className="single_article"><h1>{article.title}</h1><img src = {article.article_img_url}/><h3>Author: {article.author}</h3><h3>Topic: {article.topic}</h3><h3>Comments: {commentNumber}</h3><button onClick={(event)=>{handleClick(article_id, -1)}}>downvote</button><button onClick={(event)=>{handleClick(article_id, 1)}}>upvote</button>{err ? <p>{err}</p> : null} <p>votes: {article.votes}</p><p>{article.body}</p>  <Comments setCommentNumber={setCommentNumber}/></div>)
+    return(<div className="single_article"><h1>{article.title}</h1><img src = {article.article_img_url}/><h3>Author: {article.author}</h3><h3>Topic: {article.topic}</h3><h3>created at: {createdAt.toDateString()}</h3><h3>Comments: {commentNumber}</h3><button onClick={(event)=>{handleClick(article_id, -1)}}>downvote</button><button onClick={(event)=>{handleClick(article_id, 1)}}>upvote</button>{err ? <p>{err}</p> : null} <p>votes: {article.votes}</p><p>{article.body}</p>  <Comments setCommentNumber={setCommentNumber}/></div>)
 }
 
 export default ArticlePage

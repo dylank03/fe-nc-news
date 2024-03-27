@@ -47,6 +47,7 @@ h1{
   display: flex;
   align-content: stretch;
   flex-wrap: wrap;
+  justify-content: center;
   flex-direction: row;
   margin-inline-start: 5%;
   margin-inline-end: 5%;

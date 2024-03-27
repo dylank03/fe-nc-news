@@ -2,12 +2,12 @@ import axios from 'axios'
 
 const newsApi = axios.create({baseURL: 'https://ncnewshostserver.onrender.com/api'})
 
-const getArticles = (topic)=>{
-    let value = topic.get('topic')
+const getArticles = (queries)=>{
     return newsApi
     .get("/articles", {
         params: {
-          topic: value
+          topic: queries.get('topic'),
+          sort_by: queries.get('sort_by')
         },
       })
     .then((response) => {

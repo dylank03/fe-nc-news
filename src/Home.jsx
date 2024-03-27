@@ -9,10 +9,13 @@ const Home = ()=>{
     const [loginMessage, setLoginMessage] = useState('')
     const[isLoading, setIsLoading] = useState(true)
 
-    getUsers().then((users)=>{
-        setUserList(users.users)
-        setIsLoading(false)
-    })
+    useEffect(()=>{
+        getUsers().then((users)=>{
+            setUserList(users.users)
+            setIsLoading(false)
+        })
+    },[])
+
 
     if(isLoading){
         return(<h1>loading...</h1>)

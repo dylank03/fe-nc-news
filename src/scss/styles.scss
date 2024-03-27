@@ -2,11 +2,19 @@
 @import "bootstrap/scss/bootstrap";
 
 
-.ml-10 {
+.ml-inline-5 {
     margin-inline-start: 5%;
 }
 
-.px-8 {
-    padding-left: ($spacer * 2.5) !important;
+.pl-9 {
+    padding-left: ($spacer * 3) !important;
 }
-  
+
+.pl-2{
+    padding-left: ($spacer * .5);
+}
+
+.mr-0{
+    margin-left:auto;
+    margin-inline-end: 5%;
+}
