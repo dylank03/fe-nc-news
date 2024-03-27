@@ -1,0 +1,12 @@
+// Import all of Bootstrap's CSS
+@import "bootstrap/scss/bootstrap";
+
+
+.ml-10 {
+    margin-inline-start: 5%;
+}
+
+.px-8 {
+    padding-left: ($spacer * 2.5) !important;
+}
+  

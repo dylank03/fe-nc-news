@@ -5,7 +5,6 @@ import ArticleCard from "./ArticleCard"
 import { useSearchParams } from "react-router-dom"
 
 
-
 const Articles = ()=>{
 
     const[articles, setArticles] = useState([])
@@ -14,46 +13,34 @@ const Articles = ()=>{
     const[topic, setTopic] = useSearchParams('')
     const[articleCount, setArticleCount] = useState(0)
 
-    const handleSubmit = (event)=>{
-        event.preventDefault()
-        setTopic('')
-    }
-
     useEffect(() => {
         getArticles(topic).then((articleData) => {
             setArticles(articleData.articles);
             setArticleCount(articleData.article_count)
             setIsLoading(false)
         })
-        getTopics().then((topicsData)=>{
-            setTopics(topicsData.allTopics)
-        })
+        getTopics()
     }, [topic]);
 
     if(isLoading){
         return(<h1>loading...</h1>)
     }
 
-    return(<>          
-    {/* <form onSubmit={handleSubmit}>
-        <label>
-          Category:
-          <select
-            name="category-names"
-            id="item_category"
-            onChange={(event) => {
-              setTopic({topic: event.target.value});
-            }}
-                  >
-            <option value="" disabled  >Categories</option>
-            {topics.map((topic)=>{
-                return(<option value={topic.slug}> {topic.slug}</option>)
-            })}
+    return(<>
+  <h5 className="ml-10 px-8">Choose Topic:</h5><div className="btn-group ml-10 px-8" role="group" aria-label="Basic radio toggle button group">
+  <input onClick = {(event)=>{setTopic({topic: ''})}} type="radio" className="btn-check" name="btnradio" id="btnradio1" autoComplete="off" {...topic === '' && checked}/>
+  <label className="btn btn-outline-primary" htmlFor="btnradio1">All</label>
 
-          </select>
-        </label>
-        <button>Reset Filters</button> */}
-      {/*</form><h2>There are {articleCount} articles</h2>*/}<h1>Top Articles</h1><ul className="articles_list">{articles.map((article)=>{
+  <input onClick = {()=>{setTopic({topic: 'coding'})}} type="radio" className="btn-check" name="btnradio" id="btnradio2" autoComplete="off"/> 
+  <label className="btn btn-outline-primary" htmlFor="btnradio2">Coding</label>
+
+  <input onClick = {()=>{setTopic({topic: 'football'})}} type="radio" className="btn-check" name="btnradio" id="btnradio3" autoComplete="off"/>
+  <label className="btn btn-outline-primary" htmlFor="btnradio3">Football</label>
+
+  <input onClick = {()=>{setTopic({topic: 'cooking'})}} type="radio" className="btn-check" name="btnradio" id="btnradio4" autoComplete="off"/>
+  <label className="btn btn-outline-primary" htmlFor="btnradio4">Cooking</label>
+
+</div><h1>Articles</h1><ul className="articles_list">{articles.map((article)=>{
         return <li className="articles_list_item" key = {article.article_id}><ArticleCard article = {article}/></li>
     })}</ul></>)
 

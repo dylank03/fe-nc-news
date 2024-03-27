@@ -2,7 +2,6 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  background-color: #92A8D1;
   margin:0;
 }
 
@@ -18,6 +17,7 @@ h1{
   background-color: #183c67;
   width: 100vw;
   display: flex;
+  margin-bottom: 50px;
 }
 
 .header_list{
@@ -44,45 +44,22 @@ h1{
 }
 
 .articles_list{
-  margin-top: 50px;
+  display: flex;
+  align-content: stretch;
+  flex-wrap: wrap;
+  flex-direction: row;
   margin-inline-start: 5%;
   margin-inline-end: 5%;
   list-style-type: none;
   text-align: center;
 }
 
-.articles_list_item{
-  display: inline-block;
-}
-
-.article_img{
-  height: 200px;
-  width: 200px;
-  border-radius: 10%;
-}
-
-.article_title{
-  font-size: 1.3rem;
-  font-family: Arial, Helvetica, sans-serif;
-}
 
 a{
   text-decoration: none;
 }
 
-.article_card{
-  background-color: lightblue;
-  border: 1px solid hsl(0, 0%, 80%);
-  border-radius: 10px;
-  box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
-  padding: 20px;
-  margin: 40px;
-  text-align: center;
-  height: 400px;
-  width: 400px;
-  display: table;
-  font-weight: 900;
-}
+
 
 .single_article{
   text-align: center;
@@ -105,25 +82,9 @@ a{
   justify-content: center;
 }
 
-.user_list_img{
-    height: 200px;
-    width: 200px
-}
-
-.user_card{
-  background-color: lightblue;
-  border: 1px solid hsl(0, 0%, 80%);
-  border-radius: 10px;
-  box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
-  padding: 20px;
-  margin: 40px;
-  height: 400px;
-  width: 400px;
-  display: table;
-  font-weight: 900;
-}
 
 #user_button{
   height:40px;
   width: 200px;
 }
+
