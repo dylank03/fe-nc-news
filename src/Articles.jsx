@@ -9,7 +9,6 @@ const Articles = ()=>{
 
     const[articles, setArticles] = useState([])
     const[isLoading, setIsLoading] = useState(true)
-    const [topics, setTopics] = useState([])
     const[topic, setTopic] = useSearchParams('')
     const[articleCount, setArticleCount] = useState(0)
 
@@ -28,10 +27,10 @@ const Articles = ()=>{
 
     return(<>
   <h5 className="ml-10 px-8">Choose Topic:</h5><div className="btn-group ml-10 px-8" role="group" aria-label="Basic radio toggle button group">
-  <input onClick = {(event)=>{setTopic({topic: ''})}} type="radio" className="btn-check" name="btnradio" id="btnradio1" autoComplete="off" {...topic === '' && checked}/>
+  <input onClick = {(event)=>{setTopic({topic: ''})}} type="radio" className="btn-check" name="btnradio" id="btnradio1" autoComplete="off" defaultChecked = {true}/>
   <label className="btn btn-outline-primary" htmlFor="btnradio1">All</label>
 
-  <input onClick = {()=>{setTopic({topic: 'coding'})}} type="radio" className="btn-check" name="btnradio" id="btnradio2" autoComplete="off"/> 
+  <input onClick = {()=>{setTopic({topic: 'coding'})}} type="radio" className="btn-check" name="btnradio" id="btnradio2" autoComplete="off"/>
   <label className="btn btn-outline-primary" htmlFor="btnradio2">Coding</label>
 
   <input onClick = {()=>{setTopic({topic: 'football'})}} type="radio" className="btn-check" name="btnradio" id="btnradio3" autoComplete="off"/>
