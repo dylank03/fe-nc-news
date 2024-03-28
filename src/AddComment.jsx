@@ -51,14 +51,13 @@ const AddComment = ({setUpdatedComments, setCommentNumber}) =>{
             <label>
               Post Comment:
               <textarea
-              errorMessage = {<h2 className="error_message">{message}</h2>}
                 placeholder="Add Comment"
                 onChange={(event) => {
                   setInputBody(event.target.value);
                 }}
                 value={inputBody}
               ></textarea>
-            </label><button>add comment</button></form></>)
+            </label><button className="btn btn-primary">add comment</button></form></>)
 
 }
 

@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import Comments from './Comments'
 import { patchVotes } from "./api"
+import { left } from "@popperjs/core"
 
 const ArticlePage = ()=>{
 
@@ -41,7 +42,7 @@ const ArticlePage = ()=>{
     if(isLoading){
         return<h1>Loading...</h1>
     }
-    return(<div className="single_article"><h1>{article.title}</h1><img src = {article.article_img_url}/><h3>Author: {article.author}</h3><h3>Topic: {article.topic}</h3><h3>created at: {createdAt.toDateString()}</h3><h3>Comments: {commentNumber}</h3><button onClick={(event)=>{handleClick(article_id, -1)}}>downvote</button><button onClick={(event)=>{handleClick(article_id, 1)}}>upvote</button>{err ? <p>{err}</p> : null} <p>votes: {article.votes}</p><p>{article.body}</p>  <Comments setCommentNumber={setCommentNumber}/></div>)
+    return(<div className="d-flex justify-content-center"><div className="w-md text-center"><div className="card px-16 py-4"><h1>{article.title}</h1><h5>Author: {article.author}</h5><img src = {article.article_img_url}/><h5>Topic: {article.topic}</h5><h5>created at: {createdAt.toDateString()}</h5><div className="d-flex align-items-center justify-content-center"><h5>{commentNumber}<i className="bi bi-chat-left-text px-2"></i></h5><button className="btn btn-success m-2" onClick={(event)=>{handleClick(article_id, 1)}}><i className="bi bi-hand-thumbs-up"></i></button>{err ? <p>{err}</p> : null}<h5>{article.votes}</h5><button className="btn btn-danger m-2" onClick={(event)=>{handleClick(article_id, -1)}}><i className="bi bi-hand-thumbs-down"></i></button></div> <p>{article.body}</p></div>  <Comments setCommentNumber={setCommentNumber}/></div></div>)
 }
 
 export default ArticlePage
