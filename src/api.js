@@ -7,7 +7,9 @@ const getArticles = (searchParams)=>{
     .get("/articles", {
         params: {
           topic: searchParams.get('topic'),
-          sort_by: searchParams.get('sortBy')
+          sort_by: searchParams.get('sortBy'),
+          order_by: searchParams.get('orderBy'),
+          p: searchParams.get('page')
         },
       })
     .then((response) => {
