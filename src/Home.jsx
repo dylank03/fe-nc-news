@@ -22,9 +22,9 @@ const Home = ()=>{
     }
 
 
-    const handleClick = (userName)=>{
-        setUser(userName)
-        setLoginMessage(`You are now logged in as ${userName}`)
+    const handleClick = (selectedUser)=>{
+        setUser(selectedUser)
+        setLoginMessage(`You are now logged in as ${selectedUser.username}`)
     }
 
    

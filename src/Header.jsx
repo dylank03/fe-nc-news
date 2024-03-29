@@ -7,13 +7,13 @@ const Header = () =>{
     const{user} = useContext(UserContext)
 
     return(<>
-    {user && <h2>User: {user}</h2>}
-    <div className="header_container"> 
+    <div className="navbar bg-blue"> 
         <img className = "page_logo" src="../src/assets/ShareSphereLogo.png" alt="My Image"></img>
-        <nav className="header_list">
+        <nav className="d-flex justify-content-center vw-100 position-fixed">
         <Link className = "header_link" to = "/"> Home </Link>
         <Link className="header_link" to="/articles"> Articles</Link>
         </nav>
+        {user ? <div className="card bg-light-blue mr-20"><h1><i className="bi bi-person-fill"></i><img className="rounded-circle ml-4" style = {{height: "40px", width: "40px"}} src={user.avatar_url} /></h1><h5>{user.username}</h5></div> : <h2 className="mr-20 text-white">Log In</h2>}
     </div>
 </>)
 }
