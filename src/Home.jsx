@@ -2,7 +2,6 @@ import { useState, useEffect, useContext } from "react"
 import { getUsers } from "./api"
 import UserCard from "./UserCard"
 import { UserContext } from "./contexts/UserContext"
-import {CircularProgress} from "@nextui-org/react";
 
 const Home = ()=>{
     const [userList, setUserList] = useState([])
@@ -10,19 +9,22 @@ const Home = ()=>{
     const [loginMessage, setLoginMessage] = useState('')
     const[isLoading, setIsLoading] = useState(true)
 
-    getUsers().then((users)=>{
-        setUserList(users.users)
-        setIsLoading(false)
-    })
+    useEffect(()=>{
+        getUsers().then((users)=>{
+            setUserList(users.users)
+            setIsLoading(false)
+        })
+    },[])
+
 
     if(isLoading){
         return(<h1>loading...</h1>)
     }
 
 
-    const handleClick = (userName)=>{
-        setUser(userName)
-        setLoginMessage(`You are now logged in as ${userName}`)
+    const handleClick = (selectedUser)=>{
+        setUser(selectedUser)
+        setLoginMessage(`You are now logged in as ${selectedUser.username}`)
     }
 
    

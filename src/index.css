@@ -1,3 +1,91 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  margin:0;
+}
+
+:root body{
+  margin:0;
+}
+
+h1{
+  text-align: center
+}
+
+.header_container{
+  background-color: #183c67;
+  width: 100vw;
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.header_list{
+  position: absolute;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.header_link{
+  color: white;
+  text-decoration: none;
+  font-size: 2rem;
+  margin:20px;
+  padding: 20px;
+}
+
+.page_logo{
+  display:inline-block;
+  height: 100px;
+  width: 300px;
+  margin: 20px;
+}
+
+.articles_list{
+  display: flex;
+  align-content: stretch;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
+  margin-inline-start: 5%;
+  margin-inline-end: 5%;
+  list-style-type: none;
+  text-align: center;
+}
+
+
+a{
+  text-decoration: none;
+}
+
+
+
+.single_article{
+  text-align: center;
+}
+
+.comments_list{
+  list-style-type: none;
+}
+
+.comment{
+  border-style: solid;
+  border-color: black;
+  margin: 20px;
+  padding: 20px;
+}
+
+.user_list{
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+}
+
+
+#user_button{
+  height:40px;
+  width: 200px;
+}
+

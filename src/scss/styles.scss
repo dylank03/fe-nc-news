@@ -1,0 +1,66 @@
+// Import all of Bootstrap's CSS
+@import "bootstrap/scss/bootstrap";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+
+
+body{
+    background-color: lightblue;
+}
+
+
+.ml-inline-5 {
+    margin-inline-start: 5%;
+}
+
+.pl-9 {
+    padding-left: ($spacer * 3) !important;
+}
+
+.pl-2{
+    padding-left: ($spacer * .5);
+}
+
+.mr-0{
+    margin-left:auto;
+    margin-inline-end: 5%;
+}
+
+.mr-20{
+    margin-right: ($spacer * 8);
+
+}
+
+.ml-4{
+    margin-left: ($spacer * 1.5) !important;
+}
+
+.px-16 {
+    padding-left: ($spacer * 4) !important;
+    padding-right: ($spacer * 4) !important;
+  }
+
+.py-4{
+    padding-top: ($spacer *1.5);
+    padding-bottom: ($spacer *1.5);
+}
+
+@media screen and (min-width: 700px){
+    .w-md{
+        width: 50%;
+    }
+}
+
+
+@media screen and (max-width: 700px){
+    .w-md{
+     width: 100%;
+    }
+}
+
+.bg-blue{
+    background-color: #183c67;
+}
+
+.bg-light-blue{
+    background-color: lightblue;
+}
