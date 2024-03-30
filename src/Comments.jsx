@@ -16,7 +16,7 @@ const Comments = ({setCommentNumber})=>{
         getComments(article_id).then((commentData) => {
             setComments(commentData.comments);
         })
-        }, []);
+        }, [comments]);
 
 
         if(comments.length === 0){
@@ -25,7 +25,7 @@ const Comments = ({setCommentNumber})=>{
  
         return(<>
         <AddComment setCommentNumber={setCommentNumber} setUpdatedComments = {setUpdatedComments}/><h1>Comments</h1><ul className="comments_list">{updatedComments.map((comment, index)=>{
-            return(<li className = "comment " key = {index}><CommentCard comment = {comment}/></li>)
+            return(<li className = "comment bg-white" key = {index}><CommentCard comment = {comment}/></li>)
         })}</ul><ul className="comments_list">{comments.map((comment)=>{
             return(<li className = "comment bg-light" key = {comment.comment_id}><CommentCard comment = {comment}/></li>)
         })}</ul></>)

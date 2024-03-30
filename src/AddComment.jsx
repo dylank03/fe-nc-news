@@ -24,21 +24,13 @@ const AddComment = ({setUpdatedComments, setCommentNumber}) =>{
     useEffect(()=>{
         if(newComment.length >0){
           setMessage('Posting...')
-          setUpdatedComments((currComments)=>{
-          return [{author: user, body: newComment}, ...currComments]
-        })
-          setCommentNumber((currNumber) => currNumber + 1)
-          postComment(article_id, newComment, user).then(()=>{setMessage('Comment Posted!')}).catch((err)=>{
-              setUpdatedComments((currComments)=>{
-                  return currComments.slice(1)
-              })
+          postComment(article_id, newComment, user.username).then(()=>{setMessage('Comment Posted!')}).catch((err)=>{
               if(!user){
                   setMessage('Please log in to add a comment')
               }
               else{
                   setMessage('Something went wrong, please try again later')
               }
-              setCommentNumber((currNumber) => currNumber -1)
           })
         }
         setNewComment('')
