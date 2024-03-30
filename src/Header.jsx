@@ -9,7 +9,7 @@ const Header = () =>{
     return(<>
     <div className="navbar bg-blue"> 
         <img className = "page_logo" src="../src/assets/ShareSphereLogo.png" alt="My Image"></img>
-        <nav className="d-flex justify-content-center vw-100 position-fixed">
+        <nav className="d-flex justify-content-center vw-100 position-absolute">
         <Link className = "header_link" to = "/"> Home </Link>
         <Link className="header_link" to="/articles"> Articles</Link>
         </nav>
