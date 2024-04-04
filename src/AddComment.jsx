@@ -40,16 +40,17 @@ const AddComment = ({setUpdatedComments, setCommentNumber}) =>{
     return (
         <>
           <form onSubmit = {handleSubmit}>
+            <div className="form-group">
             <label>
               Post Comment:
-              <textarea
+              <textarea className="form-control" 
                 placeholder="Add Comment"
                 onChange={(event) => {
                   setInputBody(event.target.value);
                 }}
                 value={inputBody}
               ></textarea>
-            </label><button className="btn btn-primary">add comment</button></form></>)
+            </label></div><button className="btn btn-primary">add comment</button></form></>)
 
 }
 

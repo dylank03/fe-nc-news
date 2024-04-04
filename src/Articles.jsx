@@ -14,7 +14,6 @@ const Articles = ()=>{
     const[orderBy, setOrderBy] = useState('DESC')
     const[page, setPage] = useState(1)
     const[searchParams, setSearchParams] = useSearchParams({topic, sortBy, orderBy, page})
-    console.log(articleCount)
     const[pageButton, setPageButton] = useState(Array(Math.ceil((articleCount/10))).fill(0))
 
     const updateTopic = (filteredTopic)=>{
@@ -40,24 +39,22 @@ const Articles = ()=>{
 
     useEffect(() => {
         getArticles(searchParams).then((articleData) => {
-            console.log(searchParams)
-            console.log(articleData)
             setArticles(articleData.articles);
             setArticleCount(articleData.article_count)
             setIsLoading(false)
             setPageButton(Array((Math.ceil(articleData.article_count/10))).fill(0))
         })
 
-
     }, [searchParams, topic, sortBy, orderBy, page]);
+
 
     if(isLoading){
         return(<h1>loading...</h1>)
     }
 
 
-    return(<><h1>Articles</h1>
-  <div className="d-flex align-items-center" ><h5 className="ml-inline-5 pl-9">Choose Topic:</h5><div className="pl-2" role="group" aria-label="topic radio toggle button group">
+    return(<><h1 className="mt-3">Articles</h1>
+  <div className="d-flex align-items-center bs-breakpoint-lg" ><h5 className="ml-inline-5 pl-9">Choose Topic:</h5><div className="pl-2" role="group" aria-label="topic radio toggle button group">
   <input onClick = {()=>{updateTopic('')}} type="radio" className="btn-check" name="btnradio" id="btnradio1" autoComplete="off" defaultChecked = {true}/>
   <label className="btn btn-outline-primary" htmlFor="btnradio1">All</label>
 
@@ -92,7 +89,7 @@ const Articles = ()=>{
     })}</ul><div aria-label="Page navigation" className="d-flex justify-content-center">
     <ul className="pagination">
       {page > 1 && <li className="page-item"><button className="page-link" onClick = {()=>(updatePage(+page -1))}>Previous</button></li>}
-        {pageButton.map((button, index)=> {return <li className="page-item"><button className="page-link" onClick = {()=>(updatePage(index +1))}>{index +1}</button></li>})}
+        {pageButton.map((button, index)=> {return <li key ={index} className="page-item"><button className="page-link" onClick = {()=>(updatePage(index +1))}>{index +1}</button></li>})}
       {page <= articleCount/10 && <li className="page-item"><button className="page-link" onClick = {()=>(updatePage(+page +1))}>Next</button></li>}
     </ul>
   </div></>)
