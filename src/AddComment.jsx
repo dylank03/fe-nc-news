@@ -38,10 +38,10 @@ const AddComment = ({setUpdatedComments, setCommentNumber}) =>{
 
 
     return (
-        <>
+        <div className="d-flex justify-content-center">
           <form onSubmit = {handleSubmit}>
             <div className="form-group">
-            <label>
+            <label className="text-center">
               Post Comment:
               <textarea className="form-control" 
                 placeholder="Add Comment"
@@ -50,7 +50,7 @@ const AddComment = ({setUpdatedComments, setCommentNumber}) =>{
                 }}
                 value={inputBody}
               ></textarea>
-            </label></div><button className="btn btn-primary">add comment</button></form></>)
+            </label></div><div className="d-flex justify-content-center"><button className="btn btn-primary">add comment</button></div></form></div>)
 
 }
 
