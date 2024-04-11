@@ -79,8 +79,14 @@ a{
 
 .user_list{
   display: flex;
-  list-style-type: none;
+  align-content: stretch;
+  flex-wrap: wrap;
   justify-content: center;
+  flex-direction: row;
+  margin-inline-start: 5%;
+  margin-inline-end: 5%;
+  list-style-type: none;
+  text-align: center;
 }
 
 

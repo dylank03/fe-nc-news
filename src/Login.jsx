@@ -28,7 +28,7 @@ const Login = ()=>{
     }
 
    
-    return(<><h1>Homepage</h1><h1>Users</h1><ul className="user_list">{userList.map((user, index)=>{
+    return(<><h1>Users</h1><ul className="user_list">{userList.map((user, index)=>{
         return <li  key = {index}><UserCard user = {user} handleClick= {handleClick}/></li>
     })}</ul><h2>{loginMessage}</h2></>)
 
