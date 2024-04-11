@@ -2,6 +2,8 @@ import { useState, useEffect } from "react"
 import getArticles from "./api"
 import ArticleCard from "./ArticleCard"
 import { useSearchParams } from "react-router-dom"
+import Dropdown from 'react-bootstrap/Dropdown'
+import { DropdownItem } from "react-bootstrap"
 
 
 const Articles = ()=>{
@@ -54,7 +56,7 @@ const Articles = ()=>{
 
 
     return(<><h1 className="mt-3">Articles</h1>
-  <div className="d-flex align-items-center bs-breakpoint-lg" ><h5 className="ml-inline-5 pl-9">Choose Topic:</h5><div className="pl-2" role="group" aria-label="topic radio toggle button group">
+  <div className="d-flex align-items-center bs-breakpoint-lg"><h5 className="ml-inline-5 pl-9 topic-selection">Choose Topic:</h5><div className="topic-selection" role="group" aria-label="topic radio toggle button group">
   <input onClick = {()=>{updateTopic('')}} type="radio" className="btn-check" name="btnradio" id="btnradio1" autoComplete="off" defaultChecked = {true}/>
   <label className="btn btn-outline-primary" htmlFor="btnradio1">All</label>
 
@@ -66,8 +68,23 @@ const Articles = ()=>{
 
   <input onClick = {()=>{updateTopic('cooking')}} type="radio" className="btn-check" name="btnradio" id="btnradio4" autoComplete="off"/>
   <label className="btn btn-outline-primary" htmlFor="btnradio4">Cooking</label></div>
+
+  <Dropdown className="text-center m-auto topic-dropdown">
+      <Dropdown.Toggle variant="success" id="dropdown-basic">
+        Topic
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+        <Dropdown.Item onClick={()=>{updateTopic('')}}>All</Dropdown.Item>
+        <Dropdown.Item onClick={()=>{updateTopic('coding')}}>Coding</Dropdown.Item>
+        <Dropdown.Item onClick={()=>{updateTopic('football')}}>Football</Dropdown.Item>
+        <Dropdown.Item onClick={()=>{updateTopic('cooking')}}>Cooking</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+
+    
   
-  <div className="d-flex align-items-center mr-0 ml-inline-5 pl-9"><h5 >Sort By:</h5><div className="pl-2 " role="group" aria-label="sort by radio toggle button group">
+  <div className="d-flex align-items-center ms-3"><h5 className="topic-selection">Sort By:</h5><div className="sort-selection " role="group" aria-label="sort by radio toggle button group">
   <input onClick = {()=>{updateSort('created_at')}} type="radio" className="btn-check" name="btnradio2" id="btnradio5" autoComplete="off" defaultChecked = {true}/>
   <label className="btn btn-outline-primary" htmlFor="btnradio5">Date Created</label>
 
@@ -79,10 +96,22 @@ const Articles = ()=>{
   
   <input onClick = {()=>{updateSort('votes')}} type="radio" className="btn-check" name="btnradio2" id="btnradio8" autoComplete="off"/>
   <label className="btn btn-outline-primary" htmlFor="btnradio8">Top Rated</label>
+  </div>
+</div>  
 
-  <input onClick = {()=>{updateOrder(orderBy === 'ASC' ? 'DESC' : 'ASC')}} type="radio" className="btn-check" name="btnradio3" id="btnradio9" autoComplete="off" defaultChecked={true}/>
+<Dropdown className="text-center sort-dropdown ms-2 m-auto">
+      <Dropdown.Toggle variant="success" id="dropdown-basic">
+        Sort By
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+        <Dropdown.Item onClick={()=>{updateSort('created_at')}}>Date Created</Dropdown.Item>
+        <Dropdown.Item onClick={()=>{updateSort('title')}}>title</Dropdown.Item>
+        <Dropdown.Item onClick={()=>{updateSort('author')}}>author</Dropdown.Item>
+        <DropdownItem onClick = {()=>{updateSort('votes')}}>votes</DropdownItem>
+      </Dropdown.Menu>
+    </Dropdown> <input onClick = {()=>{updateOrder(orderBy === 'ASC' ? 'DESC' : 'ASC')}} type="radio" className="btn-check" name="btnradio3" id="btnradio9" autoComplete="off" defaultChecked={true}/>
   <label className="btn btn-outline-primary" htmlFor="btnradio9">{orderBy === 'ASC' ? <i className="bi bi-sort-alpha-up"></i> : <i className="bi bi-sort-alpha-down"></i>}</label></div>
-</div></div>
 
 <ul className="articles_list">{articles.map((article)=>{
         return <li className="articles_list_item" key = {article.article_id}><ArticleCard article = {article}/></li>

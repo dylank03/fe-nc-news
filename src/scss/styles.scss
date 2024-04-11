@@ -7,13 +7,45 @@ body{
     background-color: lightblue;
 }
 
+
+
 a{
     text-decoration: none;
     color:black;
 }
 
+.sort-selection{
+    padding-left: ($spacer * .5);
+    @media screen and (max-width: 900px){
+        display:none;
+    }
+}
+
+.topic-selection{
+    padding-left: ($spacer *.5);
+    @media screen and (max-width: 900px){
+        display: none;
+    }
+}
+
+.sort-dropdown{
+    @media screen and (min-width: 900px){
+        display: none;
+    }
+}
+
+.topic-dropdown{
+    @media screen and (min-width: 900px){
+        display: none;
+    }
+}
+
 .ml-inline-5 {
     margin-inline-start: 5%;
+}
+
+.ml-end-5{
+    margin-inline-end: 5%;
 }
 
 .pl-9 {
@@ -27,11 +59,6 @@ a{
 .mr-0{
     margin-left:auto;
     margin-inline-end: 5%;
-}
-
-.mr-20{
-    margin-right: ($spacer * 8);
-
 }
 
 .ml-4{
