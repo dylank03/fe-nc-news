@@ -70,7 +70,7 @@ const Articles = ()=>{
   <label className="btn btn-outline-primary" htmlFor="btnradio4">Cooking</label></div>
 
   <Dropdown className="text-center m-auto topic-dropdown">
-      <Dropdown.Toggle variant="success" id="dropdown-basic">
+      <Dropdown.Toggle id="dropdown-basic">
         Topic
       </Dropdown.Toggle>
 
@@ -84,7 +84,7 @@ const Articles = ()=>{
 
     
   
-  <div className="d-flex align-items-center m-auto justify-content-end"><h5 className="topic-selection">Sort By:</h5><div className="sort-selection " role="group" aria-label="sort by radio toggle button group">
+  <div className="d-flex align-items-center m-auto"><h5 className="topic-selection">Sort By:</h5><div className="sort-selection " role="group" aria-label="sort by radio toggle button group">
   <input onClick = {()=>{updateSort('created_at')}} type="radio" className="btn-check" name="btnradio2" id="btnradio5" autoComplete="off" defaultChecked = {true}/>
   <label className="btn btn-outline-primary" htmlFor="btnradio5">Date Created</label>
 
@@ -106,7 +106,7 @@ const Articles = ()=>{
 
 <div className="d-flex align-items-center justify-content-center me-5">
 <Dropdown className="sort-dropdown ms-2 ">
-      <Dropdown.Toggle variant="success" id="dropdown-basic">
+      <Dropdown.Toggle id="dropdown-basic">
         Sort By
       </Dropdown.Toggle>
 

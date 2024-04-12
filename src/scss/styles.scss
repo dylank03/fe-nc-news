@@ -48,6 +48,12 @@ a{
     margin-inline-end: 5%;
 }
 
+.user-icon{
+    @media screen and (max-width: 992px){
+        display: none;
+    }
+}
+
 .pl-9 {
     padding-left: ($spacer * 3) !important;
 }
