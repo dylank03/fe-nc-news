@@ -20,7 +20,7 @@ const Header = () =>{
                 <Link className="me-3" to="/articles"><h5>Articles</h5></Link>
               </Nav>
             </Navbar.Collapse>
-            <Container className="d-flex justify-content-end">{user ? <div className="user-icon card me-5" ><h1><i className="bi bi-person-fill ms-3"></i><img className="rounded-circle ms-5 me-3" style = {{height: "40px", width: "40px"}} src={user.avatar_url} /></h1><h5 className="ms-3">{user.username}</h5></div> :<Link className="user-icon me-5" to="/login"><h5>login</h5></Link>}</Container>
+            <Container className="d-flex justify-content-end user-icon">{user ? <div className="d-flex align-items-center user-icon me-5 bg-white rounded" ><img className="rounded me-3 ms-2" style = {{height: "40px", width: "40px"}} src={user.avatar_url} /><div><h5 className="mt-3 me-2">{user.username}</h5><Link to="/login"><p className="me-2">Switch User</p></Link></div></div> :<Link className="user-icon me-5" to="/login"><h5>login</h5></Link>}</Container>
         </Navbar>)
 
 
