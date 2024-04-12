@@ -55,7 +55,7 @@ const Articles = ()=>{
     }
 
 
-    return(<><h1 className="mt-3">Articles</h1>
+    return(<><h1 className="">Articles</h1>
   <div className="d-flex align-items-center m-auto ms-5 justify-content-center mt-5 bs-breakpoint-lg"><h5 className="ml-inline-5 pl-9 topic-selection">Choose Topic:</h5><div className="topic-selection" role="group" aria-label="topic radio toggle button group">
   <input onClick = {()=>{updateTopic('')}} type="radio" className="btn-check" name="btnradio" id="btnradio1" autoComplete="off" defaultChecked = {true}/>
   <label className="btn btn-outline-primary" htmlFor="btnradio1">All</label>
