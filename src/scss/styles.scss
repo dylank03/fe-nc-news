@@ -73,6 +73,12 @@ body {
     }
 }
 
+.responsive-login{
+    @media screen and (min-width: 992px){
+        display:none;
+    }
+}
+
 .pl-9 {
     padding-left: ($spacer * 3) !important;
 }
