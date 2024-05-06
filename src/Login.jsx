@@ -19,8 +19,8 @@ const Login = ()=>{
 
 
     if(isLoading){
-        return(<div className="articles_list">{Array(5).fill(0).map((placeHolder, index)=>{return <Card key={index} className="card d-flex align-items-stretch overflow-hidden m-3" style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/200w.gif?cid=6c09b952juyoosoicqmprwxol39i9kqnl3fwfdj8wepygecc&ep=v1_gifs_search&rid=200w.gif&ct=g"></Card.Img>
+        return(<><h1>Users</h1><div className="articles_list">{Array(5).fill(0).map((placeHolder, index)=>{return <Card key={index} className="card d-flex align-items-stretch overflow-hidden m-3" style={{ width: '18rem' }}>
+        <div className="d-flex justify-content-center align-items-center" style={{width: "18rem", height: "12rem"}}><Card.Img style = {{height: "100px", width: "100px"}}variant="top" src="https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/200w.gif?cid=6c09b952juyoosoicqmprwxol39i9kqnl3fwfdj8wepygecc&ep=v1_gifs_search&rid=200w.gif&ct=g"/></div>
         <Card.Body>
           <Placeholder as={Card.Title} animation="glow">
             <Placeholder xs={6} />
@@ -31,7 +31,7 @@ const Login = ()=>{
           </Placeholder>
         </Card.Body>
       </Card>})}
-    </div>)
+    </div></>)
     }
 
 
