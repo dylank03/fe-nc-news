@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react"
 import { getUsers } from "./api"
 import UserCard from "./UserCard"
 import { UserContext } from "./contexts/UserContext"
+import { DropdownItem, Card, Placeholder } from "react-bootstrap"
 
 const Login = ()=>{
     const [userList, setUserList] = useState([])
@@ -18,7 +19,19 @@ const Login = ()=>{
 
 
     if(isLoading){
-        return(<h1>loading...</h1>)
+        return(<div className="articles_list">{Array(5).fill(0).map((placeHolder, index)=>{return <Card key={index} className="card d-flex align-items-stretch overflow-hidden m-3" style={{ width: '18rem' }}>
+        <Card.Img variant="top" src="https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/200w.gif?cid=6c09b952juyoosoicqmprwxol39i9kqnl3fwfdj8wepygecc&ep=v1_gifs_search&rid=200w.gif&ct=g"></Card.Img>
+        <Card.Body>
+          <Placeholder as={Card.Title} animation="glow">
+            <Placeholder xs={6} />
+          </Placeholder>
+          <Placeholder as={Card.Text} animation="glow">
+            <Placeholder xs={7} /> <Placeholder xs={4} /> <Placeholder xs={4} />{' '}
+            <Placeholder xs={6} /> <Placeholder xs={8} />
+          </Placeholder>
+        </Card.Body>
+      </Card>})}
+    </div>)
     }
 
 
