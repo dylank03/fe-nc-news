@@ -2,8 +2,9 @@ import { postComment } from "./api"
 import { useState, useEffect, useContext} from "react"
 import { useParams } from "react-router-dom"
 import { UserContext } from "./contexts/UserContext"
+import { getComments } from "./api"
 
-const AddComment = ({setUpdatedComments, setCommentNumber}) =>{
+const AddComment = ({setComments}) =>{
 
     const[newComment, setNewComment] = useState('')
     const[inputBody, setInputBody] = useState('')
@@ -24,7 +25,9 @@ const AddComment = ({setUpdatedComments, setCommentNumber}) =>{
     useEffect(()=>{
         if(newComment.length >0){
           setMessage('Posting...')
-          postComment(article_id, newComment, user.username).then(()=>{setMessage('Comment Posted!')}).catch((err)=>{
+          postComment(article_id, newComment, user.username).then(()=>{setMessage('Comment Posted!')}).then(()=>{getComments(article_id).then((commentData) => {
+            setComments(commentData.comments);
+        })}).catch((err)=>{
               if(!user){
                   setMessage('Please log in to add a comment')
               }
@@ -50,7 +53,7 @@ const AddComment = ({setUpdatedComments, setCommentNumber}) =>{
                 }}
                 value={inputBody}
               ></textarea>
-            </label></div><div className="d-flex justify-content-center"><button className="btn btn-primary">add comment</button></div></form></div>)
+            </label></div><div className="d-flex justify-content-center"><button className="btn btn-primary">add comment</button><h5>{message}</h5></div></form></div>)
 
 }
 

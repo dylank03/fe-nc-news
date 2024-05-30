@@ -37,7 +37,6 @@ const Login = ()=>{
 
     const handleClick = (selectedUser)=>{
         setUser(selectedUser)
-        setLoginMessage(`You are now logged in as ${selectedUser.username}`)
     }
 
    
