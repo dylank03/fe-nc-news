@@ -25,7 +25,7 @@ const Comments = ()=>{
  
         return(<>
         <AddComment setComments={setComments}/><h1>Comments</h1><ul className="comments_list">{comments.map((comment)=>{
-            return(<li className = "comment bg-light" key = {comment.comment_id}><CommentCard comment = {comment}/></li>)
+            return(<li className = "comment bg-light rounded" key = {comment.comment_id}><CommentCard comment = {comment}/></li>)
         })}</ul></>)
 }
 

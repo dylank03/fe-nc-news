@@ -9,7 +9,7 @@ const CommentCard = ({comment})=>{
     const {user} = useContext(UserContext)
 
 
-    return(<>{deleteMessage ? <h2>{deleteMessage}</h2> : <><p>{comment.author}</p><p>{comment.body}</p></>}{user.username === comment.author ? <DeleteComment setDeleteMessage={setDeleteMessage} commentId = {comment.comment_id} /> : null}</>)
+    return(<>{deleteMessage ? <h2>{deleteMessage}</h2> : <div><p>{comment.author}</p><p>{comment.body}</p></div>}{user.username === comment.author ? <DeleteComment setDeleteMessage={setDeleteMessage} commentId = {comment.comment_id} /> : null}</>)
 
 }
 
