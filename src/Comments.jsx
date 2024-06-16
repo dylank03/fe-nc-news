@@ -1,4 +1,4 @@
-import { getComments } from "./api"
+import { getComments, getUsers } from "./api"
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import CommentCard from "./CommentCard"
@@ -25,7 +25,7 @@ const Comments = ()=>{
  
         return(<>
         <AddComment setComments={setComments}/><h1>Comments</h1><ul className="comments_list">{comments.map((comment)=>{
-            return(<li className = "comment bg-light rounded" key = {comment.comment_id}><CommentCard comment = {comment}/></li>)
+            return(<li className="d-flex align-center" key = {comment.comment_id}><img className="rounded-circle my-auto " style = {{height: "50px", width: "50px"}} src={comment.avatar_url} /><CommentCard comment = {comment}/></li>)
         })}</ul></>)
 }
 

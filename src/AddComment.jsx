@@ -47,7 +47,7 @@ const AddComment = ({setComments}) =>{
             <label className="text-center">
               Post Comment:
               <textarea className="form-control" 
-                placeholder="Add Comment"
+                placeholder="Type comment here!"
                 onChange={(event) => {
                   setInputBody(event.target.value);
                 }}

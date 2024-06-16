@@ -42,7 +42,14 @@ const ArticlePage = ()=>{
     if(isLoading){
         return<h1>Loading...</h1>
     }
-    return(<div className="d-flex justify-content-center mt-5"><div className="w-md"><div className="card px-16 py-4"><h1 className="text-justify">{article.title}</h1><h5 className="text-center">Author: {article.author}</h5><img src = {article.article_img_url}/><h5 className="text-center">Topic: {article.topic}</h5><h5 className="text-center">created at: {createdAt.toDateString()}</h5><div className="d-flex align-items-center justify-content-center"><h5>{commentNumber}<i className="bi bi-chat-left-text px-2"></i></h5><button className="btn btn-success m-2" onClick={(event)=>{handleClick(article_id, 1)}}><i className="bi bi-hand-thumbs-up"></i></button>{err ? <p>{err}</p> : null}<h5>{article.votes}</h5><button className="btn btn-danger m-2" onClick={(event)=>{handleClick(article_id, -1)}}><i className="bi bi-hand-thumbs-down"></i></button></div> <p style={{textAlign: "justify"}} >{article.body}</p></div>  <Comments setCommentNumber={setCommentNumber}/></div></div>)
+    return(<div className="d-flex justify-content-center mt-5"><div className="w-md"><div className="card px-16 py-4">
+        <h1 className="display-4 text-justify">{article.title}</h1><h5 className="text-center">Author: {article.author}</h5><img className="rounded" src = {article.article_img_url}/>
+        <h5 className="text-center">Topic: {article.topic}</h5><h5 className="text-center">created at: {createdAt.toDateString()}</h5>
+        <div className="d-flex align-items-center justify-content-center"><h5>{commentNumber}<i className="bi bi-chat-left-text px-2"></i>
+        </h5><button className="btn btn-success m-2" onClick={(event)=>{handleClick(article_id, 1)}}><i className="bi bi-hand-thumbs-up"></i>
+        </button>{err ? <p>{err}</p> : null}<h5>{article.votes}</h5><button className="btn btn-danger m-2" onClick={(event)=>{handleClick(article_id, -1)}}>
+        <i className="bi bi-hand-thumbs-down"></i></button></div> <p className="lead" style={{textAlign: "justify"}} >{article.body}</p></div>  
+        <Comments setCommentNumber={setCommentNumber}/></div></div>)
 }
 
 export default ArticlePage
