@@ -11,7 +11,7 @@ const Header = () =>{
 
     return (
         <Navbar expand="lg" className="me-3">
-            <Navbar.Brand><img className = "page_logo rounded" style ={{width: "100px"}} src="/logo.svg" alt="Site Logo"></img></Navbar.Brand>
+            <Navbar.Brand><img className = "page_logo rounded" src="/logo.svg" alt="Site Logo"></img></Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav"/>
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav>

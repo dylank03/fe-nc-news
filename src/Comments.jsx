@@ -24,8 +24,8 @@ const Comments = ()=>{
         }
  
         return(<>
-        <AddComment setComments={setComments}/><h1>Comments</h1><ul className="comments_list">{comments.map((comment)=>{
-            return(<li className="d-flex align-center" key = {comment.comment_id}><img className="rounded-circle my-auto " style = {{height: "50px", width: "50px"}} src={comment.avatar_url} /><CommentCard comment = {comment}/></li>)
+        <AddComment setComments={setComments}/><ul className="comments_list">{comments.map((comment)=>{
+            return(<li className="d-flex align-center" key = {comment.comment_id}><img className="rounded-circle my-auto" style = {{height: "50px", width: "50px"}} src={comment.avatar_url} /><CommentCard comment = {comment}/></li>)
         })}</ul></>)
 }
 

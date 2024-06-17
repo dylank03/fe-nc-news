@@ -19,7 +19,7 @@ const DeleteComment = ({commentId, setDeleteMessage}) =>{
 
 
 
-    return (<button className="btn btn-primary" isDisabled = {waiting} onClick={()=>{handleClick()}}> Delete </button>)
+    return (<button className="btn btn-danger" isDisabled = {waiting} onClick={()=>{handleClick()}}><i className="h3 bi bi-trash3"></i></button>)
 }
 
 export default DeleteComment

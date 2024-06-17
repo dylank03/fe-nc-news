@@ -38,12 +38,7 @@ h1{
   padding: 20px;
 }
 
-.page_logo{
-  display:inline-block;
-  height: 100px;
-  width: 300px;
-  margin: 20px;
-}
+
 
 .articles_list{
   display: flex;

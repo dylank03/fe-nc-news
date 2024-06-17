@@ -41,19 +41,20 @@ const AddComment = ({setComments}) =>{
 
 
     return (
-        <div className="d-flex justify-content-center">
-          <form onSubmit = {handleSubmit}>
-            <div className="form-group">
-            <label className="text-center">
+        <div className="py-5">
+          <form className="w-100" onSubmit = {handleSubmit}>
+          <label className="h2 text-center w-100">
               Post Comment:
-              <textarea className="form-control" 
+            </label>
+            <div className="form-group d-flex align-items-center">
+              <textarea className="form-control mt-3" 
                 placeholder="Type comment here!"
                 onChange={(event) => {
                   setInputBody(event.target.value);
                 }}
                 value={inputBody}
               ></textarea>
-            </label></div><div className="d-flex justify-content-center"><button className="btn btn-primary">add comment</button><h5>{message}</h5></div></form></div>)
+            <button className="btn btn-primary mt-3 ms-3"><i className="h5 bi bi-send"> Send</i></button></div><h5>{message}</h5></form></div>)
 
 }
 
