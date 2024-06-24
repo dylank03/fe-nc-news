@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import { UserContext } from "./contexts/UserContext"
 import { useContext } from "react"
 import { useState } from "react";
@@ -13,10 +13,11 @@ const Header = () =>{
     const{user} = useContext(UserContext)
 
     return (
-        <Navbar expand='lg' className="me-3">
+        <Navbar expand='lg' className="me-3" collapseOnSelect="true">
             <Navbar.Brand><img className = "page_logo rounded" src="/logo.svg" alt="Site Logo"></img></Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav"/>
             <Navbar.Offcanvas
+            className = "w-50"
               id={`offcanvasNavbar-expand-lg`}
               aria-labelledby={`offcanvasNavbarLabel-expand-lg`}
               placement="end"

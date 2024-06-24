@@ -8,7 +8,7 @@ const CommentCard = ({comment})=>{
 
     const {user} = useContext(UserContext)
 
-    return(<>{deleteMessage ? <h2>{deleteMessage}</h2> : <><div className="d-flex align-items-center comment bg-light rounded"><div><p style = {{textAlign:"justify"}} className="lead mb-0 me-4">{comment.body}</p><p className="text-secondary p mb-0">{comment.author}</p></div><div>{user.username === comment.author ? <DeleteComment setDeleteMessage={setDeleteMessage} commentId = {comment.comment_id} /> : null}</div></div></>}</>)
+    return(<>{deleteMessage ? <h2>{deleteMessage}</h2> : <><div className="d-flex align-items-center comment-body comment bg-light rounded"><div><p className="mb-0 me-4">{comment.body}</p><p className="text-secondary p mb-0">{comment.author}</p></div><div>{user.username === comment.author ? <DeleteComment setDeleteMessage={setDeleteMessage} commentId = {comment.comment_id} /> : null}</div></div></>}</>)
 
 }
 
