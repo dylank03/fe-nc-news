@@ -42,7 +42,7 @@ const ArticlePage = ()=>{
     if(isLoading){
         return<h1>Loading...</h1>
     }
-    return(<div className="d-flex justify-content-center mt-5"><div className="w-md"><div className="card px-16 py-4 mt-5">
+    return(<div className="d-flex justify-content-center responsive-background"><div className="w-md"><div className="card px-16 py-4 mt-5">
         <h1 className="display-4 text-justify">{article.title}</h1><h5 className="text-center">Author: {article.author}</h5><img className="rounded" src = {article.article_img_url}/>
         <h5 className="text-center">Topic: {article.topic}</h5><h5 className="text-center">created at: {createdAt.toDateString()}</h5>
         <div className="d-flex align-items-center justify-content-center"><h5>{commentNumber}<i className="bi bi-chat-left-text px-2"></i>

@@ -1,21 +1,26 @@
 import { Link, NavLink } from "react-router-dom"
 import { UserContext } from "./contexts/UserContext"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { useState } from "react";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useLocation} from "react-router-dom";
 
 const Header = () =>{
+
+
+    let location = useLocation()
+    console.log(location.pathname)
 
     const{user} = useContext(UserContext)
 
     return (
-        <Navbar expand='lg' className="me-3" collapseOnSelect="true">
+        <Navbar expand='lg' className={location.pathname !== '/' ? "responsive-background": "me-3"} collapseOnSelect="true">
             <Navbar.Brand><img className = "page_logo rounded" src="/logo.svg" alt="Site Logo"></img></Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" className="me-3"/>
             <Navbar.Offcanvas
             className = "w-50"
               id={`offcanvasNavbar-expand-lg`}

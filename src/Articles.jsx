@@ -52,7 +52,7 @@ const Articles = ()=>{
     }, [searchParams, topic, sortBy, orderBy, page]);
 
 
-    return(<><h1 className="">Articles</h1>
+    return(<div className="responsive-background"><h1 className="">Articles</h1>
     <Filters updateTopic = {updateTopic} updateOrder = {updateOrder} updateSort = {updateSort} sortBy = {sortBy} orderBy= {orderBy} topic = {topic}/>
 
 {isLoading ? <div className="articles_list">{Array(10).fill(0).map((placeHolder, index)=>{return <Card key={index} className="card d-flex align-items-stretch overflow-hidden m-3" style={{ width: '18rem' }}>
@@ -71,7 +71,7 @@ const Articles = ()=>{
         return <li className="articles_list_item" key = {article.article_id}><ArticleCard article = {article}/></li>
     })}</ul>
     <PageNavigation updatePage = {updatePage} page = {page} pageButton = {pageButton} articleCount = {articleCount}/>
-  </div>}</>)
+  </div>}</div>)
 
 }
 

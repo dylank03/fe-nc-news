@@ -46,6 +46,14 @@ body {
     max-height: 100%;
   }
 
+  .responsive-background{
+    @media screen and (max-width:992px) {
+        width : 100%;
+        background: white;
+    }
+  }
+  
+
 .sort-selection{
     padding-left: ($spacer * .5);
     @media screen and (max-width: 992px){
